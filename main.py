@@ -1,17 +1,9 @@
-"""
-A model for traffic planning based on automaton theory.
-
-Classes: Car, Lane
-"""
-
-
 # constants
 LANE_SIZE = 100
 LANE_CAR_LIST = []
 
 FREE = 0
 OCCUPIED = 1
-
 
 
 class Car:
@@ -57,8 +49,8 @@ def step(lane):
 
     # loop through lane
     for i in range(LANE_SIZE):
-    # if occupied, drive the car to the next cell according to its speed
-    #   -> if new position occupied, go back till there is a free cell
+        # if occupied, drive the car to the next cell according to its speed
+        #   -> if new position occupied, go back till there is a free cell
         if lane[i] == OCCUPIED:
             for car in LANE_CAR_LIST:
                 if i == car.current_position:
