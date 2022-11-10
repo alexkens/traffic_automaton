@@ -8,7 +8,7 @@ from main import *
 
 POSITION = 10
 POS_Y = 250
-CLOCK = 0.2
+CLOCK = 0.09
 
 
 class Rectangle(pygame.sprite.Sprite):
@@ -51,7 +51,7 @@ class SimulationGame:
         pygame.init()
 
         # Game Screen
-        screen_width = 1000
+        screen_width = 500
         screen_height = 500
         self.screen = pygame.display.set_mode((screen_width, screen_height))
         pygame.display.set_caption("Sprite Animation")
@@ -67,13 +67,14 @@ class SimulationGame:
                     sys.exit()
 
             # background
-            self.screen.fill((0, 255, 255))
-            self.moving_sprites.draw(self.screen)
+            self.screen.fill("green")
+            # self.moving_sprites.draw(self.screen)
 
 
 
             # Set the circle road
-            # pygame.draw.circle(self.screen, "yellow", (250., 250.), 200., 50)
+            circle = pygame.draw.circle(self.screen, "grey", (250., 250.), 225., 50)
+            self.moving_sprites.draw(self.screen)
             pygame.display.flip()
             # pygame.display.update()
             blits_list = []
@@ -84,7 +85,7 @@ class SimulationGame:
 
             #
             # step
-            self.pygame_step()
+            self.pygame_step(circle)
 
             time.sleep(CLOCK)
 
@@ -93,7 +94,7 @@ class SimulationGame:
             pygame.draw.rect(screen, RED, rect, 1)
             pygame.display.update()"""
 
-    def pygame_step(self):
+    def pygame_step(self, circle):
         self.moving_sprites.empty()
         updated_lane = step(self.lane)
         for i in range(LANE_SIZE):
@@ -120,10 +121,10 @@ def int_to_degree_to_coord(pos):
 
 if __name__ == '__main__':
     car1 = Car(0, 3)
-    car2 = Car(6, 3)
-    car3 = Car(44, 2)
+    car2 = Car(26, 3)
+    car3 = Car(44, 3)
     car4 = Car(55, 3)
-    car5 = Car(77, 4)
+    car5 = Car(99, 3)
     index_list = [car1, car2, car3, car4, car5]
     car_l = [car1]
 

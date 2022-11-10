@@ -38,6 +38,7 @@ def print_lane(lane):
     print()
     print()
 
+
 def insert_car(lane, car_list):
     for car in car_list:
         lane[car.current_position] = OCCUPIED
@@ -70,6 +71,7 @@ def drive_to_next_position(lane, updated_lane, car):
     available_pos = car.current_position
 
     for i in range(car.current_position+1, best_pos+1):
+        # if i > 99: 100 => 0, 101 => 1, etc.
         i = i % LANE_SIZE
         best_pos = best_pos % LANE_SIZE
 
