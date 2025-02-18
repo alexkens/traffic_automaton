@@ -9,6 +9,7 @@ from main import *
 POSITION = 10
 POS_Y = 250
 CLOCK = 0.09
+PNG_PATH = 'limousine.png'
 
 
 class Rectangle(pygame.sprite.Sprite):
@@ -23,7 +24,7 @@ class Rectangle(pygame.sprite.Sprite):
 class RectangleImage(pygame.sprite.Sprite):
     def __init__(self, pos):
         super().__init__()
-        car_img = pygame.image.load('limousine.png')
+        car_img = pygame.image.load(PNG_PATH)
         DEFAULT_IMAGE_SIZE = (40, 40)
         car_img = pygame.transform.scale(car_img, DEFAULT_IMAGE_SIZE)
         self.image = car_img
